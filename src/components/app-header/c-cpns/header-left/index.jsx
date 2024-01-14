@@ -11,7 +11,6 @@ const HeaderLeft = memo(() => {
   function logoClickHandle() {
     dispatch(changeHeaderConfigAction({ isFixed: true, isHome: true }))
     navigate('/home')
-    console.log('wwwwww')
   }
 
   return (

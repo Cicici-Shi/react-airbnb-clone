@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.div`
   .content {
     position: relative;
     z-index: 9;
-    // transition: all 250ms ease;
+    transition: all 250ms ease;
     border-bottom: 1px solid #eee;
     border-bottom-color: ${(props) =>
       props.theme.isAlpha ? 'rgba(238,238,238,0)' : 'rgba(238,238,238,1)'};
@@ -37,7 +37,17 @@ export const HeaderWrapper = styled.div`
   }
 `
 
-export const SearchAreaPlaceholder = styled.div`
-  height: ${(props) => (props.isSearch ? '100px' : '0')};
-  transition: height 250ms ease;
-`
+// export const SearchAreaPlaceholder = styled.div`
+//   height: ${(props) => (props.isSearch ? '100px' : '0')};
+//   transition: height 250ms ease;
+// `
+const filterStyledProps = (props) => ({
+  // 这里返回的对象仅包含有效的DOM属性
+  // 'style' 是一个有效的DOM属性，可以根据isSearch动态设置
+  style: {
+    height: props.isSearch ? '100px' : '0',
+    transition: 'height 250ms ease',
+  },
+})
+
+export const SearchAreaPlaceholder = styled.div.attrs(filterStyledProps)``
