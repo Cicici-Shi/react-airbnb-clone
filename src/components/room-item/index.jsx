@@ -39,11 +39,12 @@ const RoomItem = memo((props) => {
         ) : (
           <div className="slider">
             <div className="control">
-              <div
-                className="btn left"
-                onClick={(e) => controlClickHandle(false, e)}
-              >
-                <IconArrowLeft width="24" height="24" />
+              <div className="btn left">
+                <IconArrowLeft
+                  width="24"
+                  height="24"
+                  onClick={(e) => controlClickHandle(false, e)}
+                />
               </div>
               <div
                 className="btn right"
@@ -78,7 +79,9 @@ const RoomItem = memo((props) => {
             </Carousel>
           </div>
         )}
-        <div className="desc">{itemData.verify_info.messages.join('·')}</div>
+        <div className="desc">
+          {JSON.parse(itemData.verify_info).messages.join('·')}
+        </div>
         <div className="name">{itemData.name}</div>
         <div className="price">¥{itemData.price}/晚</div>
         <div className="bottom">

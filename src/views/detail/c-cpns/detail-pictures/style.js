@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PicturesWrapper = styled.div`
   position: relative;
@@ -19,7 +19,8 @@ export const PicturesWrapper = styled.div`
     }
   }
 
-  .left, .right {
+  .left,
+  .right {
     width: 50%;
     height: 100%;
 
@@ -43,11 +44,11 @@ export const PicturesWrapper = styled.div`
         right: 0;
         top: 0;
         bottom: 0;
-        background-color: rgba(0,0,0,.2);
+        background-color: rgba(0, 0, 0, 0.2);
         opacity: 0;
         transition: opacity 200ms ease;
       }
-      
+
       &:hover {
         img {
           transform: scale(1.1);
@@ -70,7 +71,7 @@ export const PicturesWrapper = styled.div`
 
   .show-btn {
     position: absolute;
-    z-index: 99;
+    z-index: 9;
     right: 15px;
     bottom: 15px;
     line-height: 22px;

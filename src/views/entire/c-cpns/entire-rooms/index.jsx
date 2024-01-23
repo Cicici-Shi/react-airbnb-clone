@@ -6,35 +6,40 @@ import { useNavigate } from 'react-router-dom'
 import { RoomsWrapper } from './style'
 
 const EntireRooms = memo(() => {
-  const { roomList, isLoading } = useSelector((state) => ({
-    roomList: state.entire.roomList,
-    isLoading: state.entire.isLoading
-  }), shallowEqual)
+  const { roomList, isLoading } = useSelector(
+    (state) => ({
+      roomList: state.entire.roomList,
+      isLoading: state.entire.isLoading,
+    }),
+    shallowEqual
+  )
 
   const navitate = useNavigate()
   const dispatch = useDispatch()
   function handleItemClick(item) {
-    navitate("/detail")
+    navitate('/detail')
     dispatch(changeDetailInfoActon(item))
   }
 
   return (
     <RoomsWrapper>
-      <div className='list'>
-        {
+      <div className="list">
+        {roomList ? (
           roomList.map((item, index) => {
             return (
-              <RoomItem 
-                itemData={item} 
-                itemWidth="20%" 
-                key={item._id} 
-                itemClick={e => handleItemClick(item)}
+              <RoomItem
+                itemData={item}
+                itemWidth="20%"
+                key={item.id}
+                itemClick={(e) => handleItemClick(item)}
               />
             )
           })
-        }
+        ) : (
+          <div>暂无数据</div>
+        )}
       </div>
-      { isLoading && <div className="cover"></div> }
+      {isLoading && <div className="cover"></div>}
     </RoomsWrapper>
   )
 })

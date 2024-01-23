@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ItemWrapper = styled.div`
   box-sizing: border-box;
-  width: ${props => props.itemWidth};
+  width: ${(props) => props.itemWidth};
   padding: 8px;
   margin: 8px 0;
 
@@ -38,10 +38,18 @@ export const ItemWrapper = styled.div`
         align-items: center;
         width: 83px;
         height: 100%;
-        background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+        background: linear-gradient(
+          to left,
+          transparent 0%,
+          rgba(0, 0, 0, 0.25) 100%
+        );
 
         &.right {
-          background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+          background: linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.25) 100%
+          );
         }
       }
     }
@@ -121,10 +129,10 @@ export const ItemWrapper = styled.div`
     font-size: 16px;
     font-weight: 700;
 
-    overflow: hidden;  
-    text-overflow: ellipsis; 
-    display: -webkit-box; 
-    -webkit-line-clamp: 2; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 
@@ -137,7 +145,7 @@ export const ItemWrapper = styled.div`
     align-items: center;
     font-size: 12px;
     font-weight: 600;
-    color: ${props => props.theme.color.textColor};
+    color: ${(props) => props.theme.color.textColor};
 
     .count {
       margin: 0 2px 0 4px;
