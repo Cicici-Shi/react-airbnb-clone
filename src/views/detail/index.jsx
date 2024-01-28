@@ -6,8 +6,11 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import DetailPictures from './c-cpns/detail-pictures'
 import Sidebar from './c-cpns/side-bar'
 import TitleSection from './c-cpns/title-section'
+import RoomIcon from './c-cpns/room-icon'
+import DetailNotice from './c-cpns/detail-notice'
 import { DetailWrapper, ReviewCard } from './style'
 import detail from '@/store/features/detail'
+import Rating from '@mui/material/Rating'
 
 const Detail = memo((props) => {
   const descRef = useRef()
@@ -30,6 +33,35 @@ const Detail = memo((props) => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(changeHeaderConfigAction({ isFixed: false, isHome: false }))
+
+    const handleScroll = () => {
+      const sections = {
+        descRef: descRef.current,
+        commentRef: commentRef.current,
+        noticeRef: noticeRef.current,
+      }
+      const scrollPosition = window.pageYOffset
+
+      for (const refName in sections) {
+        const ref = sections[refName]
+        const offsetTop = ref.offsetTop
+        const offsetHeight = ref.offsetHeight
+
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
+          setCurrentRef(refName)
+          break
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [dispatch])
 
   const navItems = [
@@ -39,22 +71,23 @@ const Detail = memo((props) => {
   ]
   return (
     <DetailWrapper>
-      <DetailPictures pictureUrls={detailInfo.picture_urls} />
+      <DetailPictures pictureUrls={detailInfo.picture_urls} />{' '}
+      <nav>
+        {navItems.map((item) => (
+          <div
+            key={item.refName}
+            className={classNames({ active: currentRef === item.refName })}
+            onClick={() => handleClick(item.refName)}
+          >
+            <span className="nav-name"> {item.name} </span>
+            {item.refName !== 'noticeRef' && '·'}
+          </div>
+        ))}
+      </nav>
       <div className="detail-info">
-        <nav>
-          {navItems.map((item) => (
-            <div
-              key={item.refName}
-              className={classNames({ active: currentRef === item.refName })}
-              onClick={() => handleClick(item.refName)}
-            >
-              {item.name} {item.refName !== 'noticeRef' && '·'}
-            </div>
-          ))}
-        </nav>
         <div className="room-info">
           <div className="left">
-            <div className="desc" ref={commentRef}>
+            <div className="desc" ref={descRef}>
               <span className="verify-info">
                 {JSON.parse(detailInfo.verify_info).messages.join('·')}
               </span>
@@ -63,6 +96,8 @@ const Detail = memo((props) => {
                 reviews_count={detailInfo.reviews_count}
               />
             </div>
+            <hr />
+            <RoomIcon />
             <hr></hr>
             <div className="comment" ref={commentRef}>
               <h2 className="comment-title">房客评价</h2>
@@ -84,38 +119,13 @@ const Detail = memo((props) => {
                 <p className="review-content">
                   {detailInfo.reviews[0].comments}
                 </p>
+                <hr />
+                <a href="#">房东收到的其他评价</a>
               </ReviewCard>
             </div>
-            <div className="notice">
+            <div className="notice" ref={noticeRef}>
               <h2 className="notice-title">预订须知</h2>
-              <div className="notice-item">
-                <h4 className="item-title">房屋守则</h4>
-                <p className="item-description">不允许携带宠物</p>
-                <p className="item-description">不允许举办派对和活动</p>
-                <p className="item-description">禁止吸烟</p>
-                <a href="#">房屋守则</a>
-              </div>
-              <div className="notice-item">
-                <h4 className="item-title">取消政策</h4>
-                <strong className="item-description">
-                  添加入住退房日期后，可查看取消政策详情
-                </strong>
-              </div>
-              <div className="notice-item">
-                <h4 className="item-title">安全须知</h4>
-                <p className="item-description">不适合儿童和婴儿入住</p>
-                <p className="item-description">可能遇到有潜在危险的动物</p>
-                <p className="item-description">附近的湖泊、河流、其他水体</p>
-                <a href="#">阅读详情</a>
-              </div>
-              <div className="notice-item">
-                <h4 className="item-title">安全预订</h4>
-                <span className="item-description">
-                  为了保护您的账号隐私及付款安全，请勿妄信第三方预订代理提供的折扣或礼金券，也不要在爱彼迎网站或App之外汇款或沟通。
-                </span>
-                <p className="item-description">附近的湖泊、河流、其他水体</p>
-                <a href="#">阅读详情</a>
-              </div>
+              <DetailNotice />
             </div>
           </div>
           <div className="right">
@@ -126,6 +136,24 @@ const Detail = memo((props) => {
           </div>
         </div>
       </div>
+      <footer>
+        <div className="footer-left">
+          <div className="price">
+            ￥{detailInfo.price} <span>/晚</span>
+          </div>
+          <div className="rating">
+            <Rating
+              readOnly
+              value={5}
+              precision={0.1}
+              size="small"
+              sx={{ fontSize: '12px', color: '#00848A' }}
+            />
+            <div className="rating-info">{`${detailInfo.reviews_count}条`}</div>
+          </div>
+        </div>
+        <button className="booking-btn">查看可订状态</button>
+      </footer>
     </DetailWrapper>
   )
 })

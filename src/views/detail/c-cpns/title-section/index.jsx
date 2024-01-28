@@ -5,7 +5,7 @@ export default memo(function index(props) {
   const { name, reviews_count } = props
   return (
     <TitleSection>
-      <div className="title">{name}</div>
+      <h1 className="title">{name}</h1>
       <div className="badges">
         <div className="badge highlight">5分 · {reviews_count}条评价</div>
         <div className="badge highlight">超赞房东</div>
