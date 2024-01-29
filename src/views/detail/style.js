@@ -65,7 +65,7 @@ export const DetailWrapper = styled.div`
   }
   .right {
     width: 33%;
-    padding-left: 2%;
+    padding-left: 5%;
   }
   .price {
     font-size: 1.125rem;

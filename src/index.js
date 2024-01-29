@@ -9,10 +9,11 @@ import 'normalize.css'
 import '@/assets/css/index.less'
 import store from './store'
 import Skeleton from '@mui/material/Skeleton'
+import NavbarSkeleton from '@/components/nav-skeleton'
 
 const Loader = () => (
   <>
-    <Skeleton variant="rect" width="100%" height={80} />
+    <NavbarSkeleton />
     <div style={{ display: 'flex', width: '100%', height: '600px' }}>
       <div style={{ width: '58%', padding: '1% 0 0% 2%' }}>
         <Skeleton

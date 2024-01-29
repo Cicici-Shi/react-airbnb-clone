@@ -4,6 +4,7 @@ import React, { memo } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RoomsWrapper } from './style'
+import EntireSkeleton from '../entire-skeleton'
 
 const EntireRooms = memo(() => {
   const { roomList, isLoading } = useSelector(
@@ -24,8 +25,10 @@ const EntireRooms = memo(() => {
   return (
     <RoomsWrapper>
       <div className="list">
-        {roomList ? (
-          roomList.map((item, index) => {
+        {isLoading ? (
+          <EntireSkeleton />
+        ) : roomList.length > 0 ? (
+          roomList.map((item) => {
             return (
               <RoomItem
                 itemData={item}
@@ -39,7 +42,6 @@ const EntireRooms = memo(() => {
           <div>暂无数据</div>
         )}
       </div>
-      {isLoading && <div className="cover"></div>}
     </RoomsWrapper>
   )
 })
