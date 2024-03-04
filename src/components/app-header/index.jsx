@@ -62,12 +62,12 @@ const AppHeader = memo((props) => {
           <div className="top">
             <HeaderLeft />
             <HeaderCenter
-              isSearch={isSearch}
+              $isSearch={isSearch}
               searchBarClick={searchBarClickHandle}
             />
             <HeaderRight />
           </div>
-          <SearchAreaPlaceholder isSearch={isSearch} />
+          <SearchAreaPlaceholder $isSearch={isSearch} />
         </div>
         {isSearch && !isAlpha && (
           <div className="cover" onClick={(e) => setIsSearch(false)}></div>

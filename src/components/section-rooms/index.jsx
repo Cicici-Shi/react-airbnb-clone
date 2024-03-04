@@ -8,17 +8,15 @@ const SectionRooms = memo((props) => {
 
   return (
     <RoomWrapper>
-      {
-        roomList.map(item => {
-          return <RoomItem key={item.id} itemData={item} itemWidth={itemWidth}/>
-        })
-      }
+      {roomList.map((item) => {
+        return <RoomItem key={item.id} itemData={item} itemWidth={itemWidth} />
+      })}
     </RoomWrapper>
   )
 })
 
 SectionRooms.propTypes = {
-  roomList: PropTypes.array
+  roomList: PropTypes.array,
 }
 
 export default SectionRooms

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const BrowserWrapper = styled.div`
   position: fixed;
@@ -7,7 +7,7 @@ export const BrowserWrapper = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgb(33,33,33);
+  background-color: rgb(33, 33, 33);
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@ export const BrowserWrapper = styled.div`
     }
 
     .fade-enter {
-      transform: translate(${props => props.isNext ? "100%":"-100%"});
+      transform: translate(${(props) => (props.$isNext ? '100%' : '-100%')});
       opacity: 0;
     }
 
@@ -95,7 +95,7 @@ export const BrowserWrapper = styled.div`
     justify-content: center;
     height: 100px;
     margin-top: 10px;
-    
+
     .info {
       position: absolute;
       bottom: 10px;

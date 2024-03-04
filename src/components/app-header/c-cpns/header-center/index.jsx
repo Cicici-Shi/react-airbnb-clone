@@ -7,7 +7,7 @@ import SearchTabs from './c-cpns/search-tabs'
 import SearchSections from './c-cpns/search-sections'
 
 const HeaderCenter = memo((props) => {
-  const { isSearch, searchBarClick } = props
+  const { $isSearch, searchBarClick } = props
   const [currentTab, setCurrentTab] = useState(0)
 
   /** 过滤数据 */
@@ -21,7 +21,7 @@ const HeaderCenter = memo((props) => {
   return (
     <CenterWrapper>
       <CSSTransition
-        in={!isSearch}
+        in={!$isSearch}
         classNames="bar"
         timeout={250}
         unmountOnExit={true}
@@ -34,7 +34,7 @@ const HeaderCenter = memo((props) => {
         </div>
       </CSSTransition>
       <CSSTransition
-        in={isSearch}
+        in={$isSearch}
         classNames="detail"
         timeout={250}
         unmountOnExit={true}

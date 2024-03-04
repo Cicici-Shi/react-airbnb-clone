@@ -37,15 +37,11 @@ export const HeaderWrapper = styled.div`
   }
 `
 
-// export const SearchAreaPlaceholder = styled.div`
-//   height: ${(props) => (props.isSearch ? '100px' : '0')};
-//   transition: height 250ms ease;
-// `
 const filterStyledProps = (props) => ({
   // 这里返回的对象仅包含有效的DOM属性
   // 'style' 是一个有效的DOM属性，可以根据isSearch动态设置
   style: {
-    height: props.isSearch ? '100px' : '0',
+    height: props.$isSearch ? '100px' : '0',
     transition: 'height 250ms ease',
   },
 })

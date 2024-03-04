@@ -30,7 +30,7 @@ const RoomItem = memo((props) => {
   }
 
   return (
-    <ItemWrapper itemWidth={itemWidth} onClick={itemClickHandle}>
+    <ItemWrapper $itemWidth={itemWidth} onClick={itemClickHandle}>
       <div className="inner">
         {!itemData.picture_urls ? (
           <div className="cover">

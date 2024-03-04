@@ -9,7 +9,6 @@ import TitleSection from './c-cpns/title-section'
 import RoomIcon from './c-cpns/room-icon'
 import DetailNotice from './c-cpns/detail-notice'
 import { DetailWrapper, ReviewCard } from './style'
-import detail from '@/store/features/detail'
 import Rating from '@mui/material/Rating'
 
 const Detail = memo((props) => {
