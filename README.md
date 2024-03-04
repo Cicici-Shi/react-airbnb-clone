@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# React Airbnb Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 项目介绍
 
-## Available Scripts
+React Airbnb Clone 是一个复刻 Airbnb 的全栈项目，主要用于练习和演示 React 及相关技术栈的使用。本项目致力于复现 Airbnb 的优雅 UI 设计，并在此基础上探索前后端整合、性能优化以及现代化部署实践。
 
-In the project directory, you can run:
+### 主要功能
 
-### `npm start`
+- **首页浏览**: 用户可以浏览首页推荐的房源，包括精选图片和基本信息。
+- **房源详情**: 通过点击首页的房源，用户可以查看房源的详细信息，如图片、价格、评价和须知等。
+- **图片预览**: 在房源详情页，用户可以点击图片进入全屏模式，以更好地查看房源照片。
+- **模块查看**: 从首页点击“查看更多”，用户可以浏览特定类别下的所有房源。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 技术亮点
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **组件封装**: 实现了带指示器的轮播图、滚动条和图片预览等复用组件。
+- **性能优化**: 通过 `memo` 和 `useCallback` 减少不必要的渲染，使用 `React.lazy` 和 `Suspense` 进行组件懒加载，并通过骨架屏优化加载体验。
+- **样式共享**: 利用 `ThemeProvider` 管理主题颜色、字体及混合样式，简化跨组件样式共享。
+- **数据抓取**: 使用 Node.js 脚本从接口抓取数据，并存储至 MySQL 数据库。
+- **现代化部署**: 通过 Docker 多阶段构建完成项目的部署上线，同时使用 Redis 提升数据处理效率。
 
-### `npm test`
+## 技术栈
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 前端
 
-### `npm run build`
+- React 18
+- Redux
+- Styled-components
+- Material UI
+- Axios
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 后端
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Nest.js
+- MySQL
+- Docker
+- Redis
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 项目地址
 
-### `npm run eject`
+- 前端: [react-airbnb-clone](https://github.com/Cicici-Shi/react-airbnb-clone)
+- 后端: [airbnb_clone_backend](https://github.com/Cicici-Shi/airbnb_clone_backend)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 快速开始
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. 克隆仓库:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone https://github.com/Cicici-Shi/react-airbnb-clone.git
+   cd react-airbnb-clone
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. 安装依赖:
 
-## Learn More
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. 启动项目:
+   ```bash
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 贡献
 
-### Code Splitting
+本项目欢迎任何形式的贡献，无论是新功能、bug 修复或是文档改进。如果您有任何问题，欢迎通过 Issues 提出。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 许可证
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](LICENSE)
