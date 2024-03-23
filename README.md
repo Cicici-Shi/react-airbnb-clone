@@ -6,7 +6,7 @@ React Airbnb Clone 是一个复刻 Airbnb 的全栈项目，主要用于练习�
 
 ## 项目演示
 
-本项目已成功部署并上线，欢迎访问：[cicivibes.site](http://cicivibes.site) 体验。
+本项目已成功部署并上线。当前域名 `cicivibes.site` 正在备案中。欢迎通过 IP 地址访问：[120.25.231.132](http://120.25.231.132) 体验。
 
 ### 主要功能
 
